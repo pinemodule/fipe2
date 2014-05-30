@@ -1,9 +1,10 @@
 require "fipe2/version"
+
 require 'nokogiri'
 require 'httparty'
 
 module Fipe2
-  
+
   class VehicleType
     attr_accessor :pk, :name
 
@@ -229,5 +230,4 @@ module Fipe2
 
     end
   end
-  
 end

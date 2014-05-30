@@ -1,6 +1,6 @@
 # Fipe2
 
-a ruby gem to crawl data from fipe.org
+A library for getting vehicle data from fibe.org
 
 ## Installation
 

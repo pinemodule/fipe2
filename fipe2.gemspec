@@ -6,10 +6,10 @@ require 'fipe2/version'
 Gem::Specification.new do |spec|
   spec.name          = "fipe2"
   spec.version       = Fipe2::VERSION
-  spec.authors       = ["pinemodule"]
+  spec.authors       = ["riveta"]
   spec.email         = ["riveta@pinmodule.com"]
   spec.summary       = %q{Api for fipe}
-  spec.description   = "%q{A library for getting vehicle data from fibe.org}"
+  spec.description   = %q{A library for getting vehicle data from fibe.org}
   spec.homepage      = "http://pinemodule.com/"
   spec.license       = "MIT"
 
