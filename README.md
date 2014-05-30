@@ -18,16 +18,16 @@ Or install it yourself as:
 
 ## Usage
 
- 
-	vehicle_types = VehicleAPI.new.get_vehicle_types
-	vehicle_brands = VehicleAPI.new.get_vehicle_brands(type)
-	vehicle_models = VehicleAPI.new.get_vehicle_models(brand)
-	vehicle_years = VehicleAPI.new.get_vehicle_years(model)
-	vehicle_data = VehicleAPI.new.get_vehicle_data(year)
+        vehicle_api = VehicleAPI.new
+	vehicle_types = vehicle_api.get_vehicle_types
+	vehicle_brands = vehicle_api.get_vehicle_brands(type)
+	vehicle_models = vehicle_api.get_vehicle_models(brand)
+	vehicle_years = vehicle_api.get_vehicle_years(model)
+	vehicle_data = vehicle_api.get_vehicle_data(year)
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/fipe2/fork )
+1. Fork it ( https://github.com/pinemodule/fipe2/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
