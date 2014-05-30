@@ -2,6 +2,8 @@ PATH
   remote: .
   specs:
     fipe2 (0.0.1)
+      httparty
+      nokogiri
 
 GEM
   remote: https://rubygems.org/
@@ -22,6 +24,4 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.6)
   fipe2!
-  httparty
-  nokogiri
   rake

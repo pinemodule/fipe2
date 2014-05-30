@@ -18,7 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+ 
+	vehicle_types = VehicleAPI.new.get_vehicle_types
+	vehicle_brands = VehicleAPI.new.get_vehicle_brands(type)
+	vehicle_models = VehicleAPI.new.get_vehicle_models(brand)
+	vehicle_years = VehicleAPI.new.get_vehicle_years(model)
+	vehicle_data = VehicleAPI.new.get_vehicle_data(year)
 
 ## Contributing
 
