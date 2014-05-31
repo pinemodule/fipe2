@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = "fipe2"
   spec.version       = Fipe2::VERSION
   spec.authors       = ["riveta"]
-  spec.email         = ["riveta@pinmodule.com"]
+  spec.email         = ["riveta@pinemodule.com"]
   spec.summary       = %q{Api for fipe}
   spec.description   = %q{A library for getting vehicle data from fibe.org}
-  spec.homepage      = "http://pinemodule.com/"
+  spec.homepage      = "pinemodule.com"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_development_dependency "rake"
   spec.add_dependency "nokogiri"
   spec.add_dependency "httparty"
+  spec.add_development_dependency "bundler", "~> 1.6"
+  spec.add_development_dependency "rake"
 end
