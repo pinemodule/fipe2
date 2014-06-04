@@ -6,7 +6,7 @@ A library for getting vehicle data from fibe.org
 
 Add this line to your application's Gemfile:
 
-    gem 'fipe2'
+    gem 'fipe2', :git => 'git://github.com/pinemodule/fipe2.git'
 
 And then execute:
 
@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-        vehicle_api = VehicleAPI.new
+    vehicle_api = Fipe2::VehicleAPI.new
 	vehicle_types = vehicle_api.get_vehicle_types
 	vehicle_brands = vehicle_api.get_vehicle_brands(type)
 	vehicle_models = vehicle_api.get_vehicle_models(brand)

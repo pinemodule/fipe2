@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["riveta@pinemodule.com"]
   spec.summary       = %q{Api for fipe}
   spec.description   = %q{A library for getting vehicle data from fibe.org}
-  spec.homepage      = "pinemodule.com"
+  spec.homepage      = "http://pinemodule.com/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
