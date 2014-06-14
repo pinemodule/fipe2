@@ -141,18 +141,27 @@ module Fipe2
       end
       # TODO fix this line
       data = data.merge(_cache_request_data)
-
-      uri = URI.parse(BASE_URL_HOST)
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = false
-      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      request = Net::HTTP::Post.new(app_params_to_base_path(params))
-      request.add_field('Content-Type', 'application/json')
-      # request.body = data.to_json
-      request.set_form_data(data)
-      response = http.request(request)
-      if (response.code.to_i != 200)
-        raise "Request error"
+      begin
+        uri = URI.parse(BASE_URL_HOST)
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = false
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        request = Net::HTTP::Post.new(app_params_to_base_path(params))
+        request.add_field('Content-Type', 'application/json')
+        # request.body = data.to_json
+        request.set_form_data(data)
+        response = http.request(request)
+        retry_count = 0
+        if (response.code.to_i != 200)
+          raise "Request error"
+        end
+      rescue Exception => e
+          sleep 5000
+          if retry_count > 3
+            retry
+          else
+            raise "Request error tried #{retry_count} times"
+          end
       end
       data = response.body
       _update_cache_request_data(data)
@@ -193,7 +202,7 @@ module Fipe2
       table_reference = []
       items.each do |item|
         if item.text == "Atual"
-            table_reference << TableReference.new(item['value'], Time.now.strftime("%Y / %B") , vehicle_type)
+          table_reference << TableReference.new(item['value'], Time.now.strftime("%Y / %B"), vehicle_type)
         else
           label = (item.text.split().last).to_sym
           year = item.text.split().first
