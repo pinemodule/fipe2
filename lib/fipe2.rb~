@@ -1,5 +1,0 @@
-require "fipe2/version"
-
-module Fipe2
-  # Your code goes here...
-end
