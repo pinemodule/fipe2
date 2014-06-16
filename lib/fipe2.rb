@@ -141,6 +141,7 @@ module Fipe2
       end
       # TODO fix this line
       data = data.merge(_cache_request_data)
+        retry_count = 0
       begin
         uri = URI.parse(BASE_URL_HOST)
         http = Net::HTTP.new(uri.host, uri.port)
@@ -151,13 +152,13 @@ module Fipe2
         # request.body = data.to_json
         request.set_form_data(data)
         response = http.request(request)
-        retry_count = 0
         if (response.code.to_i != 200)
           raise "Request error"
         end
       rescue Exception => e
           sleep 5000
-          if retry_count > 3
+          if retry_count < 3
+            retry_count +=1
             retry
           else
             raise "Request error tried #{retry_count} times"
