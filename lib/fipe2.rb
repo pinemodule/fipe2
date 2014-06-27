@@ -141,7 +141,7 @@ module Fipe2
       end
       # TODO fix this line
       data = data.merge(_cache_request_data)
-        retry_count = 0
+      retry_count = 0
       begin
         uri = URI.parse(BASE_URL_HOST)
         http = Net::HTTP.new(uri.host, uri.port)
@@ -156,13 +156,13 @@ module Fipe2
           raise "Request error"
         end
       rescue Exception => e
-          sleep 5000
-          if retry_count < 3
-            retry_count +=1
-            retry
-          else
-            raise "Request error tried #{retry_count} times"
-          end
+        sleep 5000
+        if retry_count < 3
+          retry_count +=1
+          retry
+        else
+          raise "Request error tried #{retry_count} times"
+        end
       end
       data = response.body
       _update_cache_request_data(data)
@@ -217,8 +217,7 @@ module Fipe2
     end
 
     def get_vehicle_brands(date)
-      request_data = {'ScriptManager1' => 'UdtMarca|ddlMarca', 'ddlTabelaReferencia' => date.pk, 'ddlMarca' => ''}
-      self.clear_cache()
+      request_data = {'ScriptManager1' => 'UdtMarca|ddlMarca', 'ddlTabelaReferencia' => date.pk}
       data = _request_data(date, request_data)
       unless data
         return
@@ -234,7 +233,7 @@ module Fipe2
 
 
     def get_vehicle_models(brand)
-      request_data = {'ScriptManager1' => 'UdtMarca|ddlMarca', 'ddlTabelaReferencia' => brand.vdate.pk, 'ddlMarca' => brand.pk, 'ddlModelo' => '0'}
+      request_data = {'ScriptManager1' => 'UdtMarca|ddlMarca', 'ddlTabelaReferencia' => brand.vdate.pk, 'ddlMarca' => brand.pk}
       data = _request_data(brand.vdate.vtype, request_data)
       unless data
         return

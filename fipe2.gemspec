@@ -4,18 +4,18 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'fipe2/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "fipe2"
-  spec.version       = Fipe2::VERSION
-  spec.authors       = ["riveta"]
-  spec.email         = ["riveta@pinemodule.com"]
-  spec.summary       = %q{Api for fipe}
-  spec.description   = %q{A library for getting vehicle data from fibe.org}
-  spec.homepage      = "http://pinemodule.com/"
-  spec.license       = "MIT"
+  spec.name = "fipe2"
+  spec.version = Fipe2::VERSION
+  spec.authors = ["riveta"]
+  spec.email = ["riveta@pinemodule.com"]
+  spec.summary = %q{Api for fipe}
+  spec.description = %q{A library for getting vehicle data from fibe.org}
+  spec.homepage = "http://pinemodule.com/"
+  spec.license = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0")
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.files = `git ls-files -z`.split("\x0")
+  spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
   spec.add_dependency "nokogiri"
