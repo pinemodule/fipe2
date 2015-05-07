@@ -18,13 +18,20 @@ Or install it yourself as:
 
 ## Usage
 
-    vehicle_api = Fipe2::VehicleAPI.new
-	vehicle_types = vehicle_api.get_vehicle_types
-	vehicle_brands = vehicle_api.get_vehicle_brands(type)
-	vehicle_models = vehicle_api.get_vehicle_models(brand)
-	vehicle_years = vehicle_api.get_vehicle_years(model)
-	vehicle_data = vehicle_api.get_vehicle_data(year)
-
+    	@api = Fipe2::VehicleAPI.new
+	vehicle_types = @api.get_vehicle_types
+	type = vehicle_types[:VEHICLE_CAR]
+	table_references = @api.get_table_reference(type)
+	vehicle_brands = @api.get_vehicle_brands(table_references[0])
+	vehicle_models = @api.get_vehicle_models(vehicle_brands[0])
+	vehicle_years = @api.get_vehicle_years(vehicle_models[0])
+	vehicle_data = @api.get_vehicle_data(vehicle_years[0])
+	car_type = vehicle_data.vyear.vmodel.vbrand.vdate.vtype
+	car_brand = vehicle_data.vyear.vmodel.vbrand
+	car_model = vehicle_data.vyear.vmodel
+	car_model_year = vehicle_data.vyear
+	car_year = vehicle_data.vyear.vmodel.vbrand.vdate
+	
 ## Contributing
 
 1. Fork it ( https://github.com/pinemodule/fipe2/fork )
